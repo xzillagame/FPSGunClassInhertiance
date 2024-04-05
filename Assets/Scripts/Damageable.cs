@@ -35,8 +35,8 @@ public class Damageable : MonoBehaviour
 
         if (currentHp < 0)
             currentHp = 0;
-
-        var damageNumber = Instantiate(damageNumberPrefab, transform.position, Quaternion.identity);
+                                                                                //To Offset to Allow numbers to spawn above head
+        var damageNumber = Instantiate(damageNumberPrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
         damageNumber.GetComponent<DamageNumber>().SetNumber(amount);
     }
 }

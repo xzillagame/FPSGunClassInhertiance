@@ -10,8 +10,8 @@ public class Blaster : Gun
             return false;
 
         var b = Instantiate(bulletPrefab, gunBarrelEnd.transform.position, gunBarrelEnd.rotation);
-        b.GetComponent<Projectile>().Initialize(3, 100, 2, 5, null); // version without special effect
-        //b.GetComponent<Projectile>().Initialize(1, 100, 2, 5, DoThing); // version with special effect
+        //b.GetComponent<Projectile>().Initialize(3, 100, 2, 5, null); // version without special effect
+        b.GetComponent<Projectile>().Initialize(1, 100, 2, 5, DoThing); // version with special effect
 
         anim.SetTrigger("shoot");
         elapsed = 0;
@@ -25,7 +25,7 @@ public class Blaster : Gun
     {
         Vector3 impactLocation = data.location;
 
-        var colliders = Physics.OverlapSphere(impactLocation, 1);
+        var colliders = Physics.OverlapSphere(impactLocation, 10);
         foreach(var c in colliders)
         {
             if(c.GetComponent<Rigidbody>())

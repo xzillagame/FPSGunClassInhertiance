@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
         
     }
 
+
     public void Initialize(float damage, float velocity, float life, float force, UnityAction<HitData> onHit)
     {
         damageAmount = damage;

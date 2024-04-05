@@ -28,5 +28,6 @@ public class Enemy : MonoBehaviour
     public void Respawn()
     {
         transform.position = origin;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }
