@@ -37,16 +37,6 @@ public class ShotGun : Gun
     private int PelletsHit = 0;
 
 
-    protected override void Update()
-    {
-        base.Update();
-
-        if(elapsed >= timeBetweenShots)
-        {
-            PelletsHit = 0;
-        }
-    }
-
 
 
     public override bool AttemptFire()
@@ -57,6 +47,11 @@ public class ShotGun : Gun
             return false;
         }
 
+
+        if(elapsed >= timeBetweenShots)
+        {
+            PelletsHit = 0;
+        }
 
         for(int i = 0; i < PelletsPerShot; i++)
         {

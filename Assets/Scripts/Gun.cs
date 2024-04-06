@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    void Update()
     {
         elapsed += Time.deltaTime;
 

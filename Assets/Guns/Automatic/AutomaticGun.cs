@@ -23,17 +23,6 @@ public class AutomaticGun : Gun
 
 
 
-    protected override void Update()
-    {
-        base.Update();
-
-        if (elapsed >= bulletHitTimeLeway)
-        {
-            bulletHitFromMag = 0;
-        }
-    }
-
-
     public override bool AttemptFire()
     {
         if(!base.AttemptFire())
@@ -44,7 +33,15 @@ public class AutomaticGun : Gun
         GameObject projectile = Instantiate(bulletPrefab, gunBarrelEnd.transform.position, gunBarrelEnd.rotation);
         Projectile p = projectile.GetComponent<Projectile>();
 
-        if(HasSpecialEffect == true)
+
+
+        if (elapsed >= bulletHitTimeLeway)
+        {
+            bulletHitFromMag = 0;
+        }
+
+
+        if (HasSpecialEffect == true)
         {
             p.Initialize(BulletDamage, BulletSpeed, BulletLifeTime, BulletKnockBackForce, CountBullets);
         }
